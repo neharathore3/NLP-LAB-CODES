@@ -1,0 +1,65 @@
+                                                              13/10/2023 Lab Notes
+code:tokenization
+input_text="this is the simple example of Tokenization!,Hopefully u understand"
+     tokens=input_text.split()
+     print(tokens)
+output:['this', 'is', 'the', 'simple', 'example', 'of', 'Tokenization!,Hopefully', 'u', 'understand']
+
+
+code:tokenization using path of document
+path='D:/New Text Document.txt' 
+with open(path) as file:
+    input_text=file.read()
+tokens=input_text.split()
+print(tokens)    
+output:
+['13-10-2023', 'nlp', 'lab', 'THIS', 'is', 'THE', 'FIRST', 'TIME', 'I', 'AM', 'DNF', 'no', 'na', 'harika', 'is', 'running', 'quickly.']
+
+
+code:stop words
+stopwords_list = ["i","me","myself","this","the"]
+path='D:/New Text Document.txt' 
+with open(path) as file:
+    input_text=file.read()
+tokens=input_text.split()
+filter_tokens=[token for token in tokens if token.lower() not in stopwords_list]
+print(tokens)    
+print(filter_tokens)
+output:
+['13-10-2023', 'nlp', 'lab', 'THIS', 'is', 'THE', 'FIRST', 'TIME', 'I', 'AM', 'DNF', 'no', 'na', 'harika', 'is', 'running', 'quickly.']
+['13-10-2023', 'nlp', 'lab', 'is', 'FIRST', 'TIME', 'AM', 'DNF', 'no', 'na', 'harika', 'is', 'running', 'quickly.']
+
+code:stemming words
+import nltk
+from nltk.stem import PorterStemmer
+stemmer=PorterStemmer()
+word = "walking"
+stemmed_word = stemmer.stem(word)
+print("original word : ",word)
+print("Stemmed word : ",stemmed_word)
+output:
+original word :  walking
+Stemmed word :  walk
+
+code:stemming words using path
+import nltk
+from nltk.stem import PorterStemmer
+stemmer=PorterStemmer()
+path='D:/New Text Document.txt' 
+with open(path) as file:
+    input_text=file.read()
+stemmed_word = stemmer.stem(input_text)
+print("original word : ",input_text)
+print("Stemmed word : ",stemmed_word)
+output:
+original word :  running
+walking
+dancing
+cooking
+swimming
+
+Stemmed word :  running
+walking
+dancing
+cooking
+swimming
